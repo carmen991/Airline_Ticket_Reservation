@@ -13,11 +13,14 @@ int main()
     int asiento, opcion;
     char vuelo[5];
     int longitud;
-    longitud = strlen(vuelo);
+
+
+Inicio:
     
     printf( "Introduzca el Numero de Vuelo (5 caracteres):_");
     scanf("%s",vuelo);
-
+    longitud = strlen(vuelo);
+    if (longitud==5){
     do
     {
         printf( "Bienvenido al TRv1                   vuelo:%s\n\n",vuelo);
@@ -40,18 +43,19 @@ int main()
          }
 
     } while ( opcion != 4 );
-
+    }
+    else goto Inicio;
 ReservarAsientos:{
-    printf("Aqui vamos a reservar asientos");
+    printf("Aqui vamos a reservar asientos\n");
     goto Finish;
 }
 AsientosDisponibles:{
-    printf("Vamos a mostrar asientos disponibles");
+    printf("Vamos a mostrar asientos disponibles\n");
     goto Finish;
 }
 
 Resumen:{
-    printf("Vamos a mostrar resumen");
+    printf("Vamos a mostrar resumen\n");
     goto Finish;
 }
 Finish:  
