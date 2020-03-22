@@ -28,7 +28,7 @@ Inicio:
         printf( "\n   2. Ver asientos disponibles");
         printf( "\n   3. Ver Resumen");
         printf( "\n   4. Salir." );
-        printf( "\n\n   Introduzca opcion (1-4): ");
+        printf( "\n\n   Seleccione opcion: ");
 
         scanf( "%d", &opcion );
 
