@@ -8,10 +8,15 @@ void clearscreen()
     system("@cls||clear");
 }
 
-int main()
+char vuelo[5];
+void ReservarAsientos();
+void AsientosDisponibles();
+void Resumen();
+
+int main(void)
 {
-    int asiento, opcion;
-    char vuelo[5];
+
+    int  opcion;
     int longitud;
 
 
@@ -32,36 +37,44 @@ Inicio:
         printf( "\n\n   Seleccione opcion: ");
 
         scanf( "%d", &opcion );
-
-        switch ( opcion )
-        {
-            case 1: goto ReservarAsientos;
-
-            case 2: goto AsientosDisponibles;
-
-            case 3: goto Resumen;
-                    
-         }
+        if (opcion==1){
+        ReservarAsientos();
+        goto Finish;
+        }
+        else{
+        if (opcion==2){
+        AsientosDisponibles();
+        goto Finish;}
+        else{
+        if (opcion==3){
+        Resumen();
+        goto Finish;}
+        }
+        }
+        
 
     } while ( opcion != 4 );
     }
     else goto Inicio;
-ReservarAsientos:{
-    clearscreen();
-    printf("Aqui vamos a reservar asientos\n");
-    goto Finish;
+
+Finish:
+    return 0;
 }
-AsientosDisponibles:{
+void ReservarAsientos(){
+    clearscreen();
+    printf("Vuelo %s\n",vuelo);
+    printf("Ingrese asiento a reservar:\n");
+    return;
+}
+void AsientosDisponibles(){
     clearscreen();
     printf("Vamos a mostrar asientos disponibles\n");
-    goto Finish;
+    return;
+
 }
 
-Resumen:{
+void Resumen(){
     clearscreen();
     printf("Vamos a mostrar resumen\n");
-    goto Finish;
-}
-Finish:  
-    return 0;
+    return;
 }
