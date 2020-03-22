@@ -9,27 +9,33 @@ void clearscreen()
 }
 
 char vuelo[5];
+void menu();
 void ReservarAsientos();
 void AsientosDisponibles();
 void Resumen();
 
 int main(void)
-{
-
-    int  opcion;
+{   
     int longitud;
-
-
 Inicio:
     
     printf( "Introduzca el Numero de Vuelo (5 caracteres):_");
     scanf("%s",vuelo);
     longitud = strlen(vuelo);
     if (longitud==5){
+        menu();
+        goto Finish;}
+    
+    else goto Inicio;
+Finish:
+    return 0;
+}
+void menu(){
+    int  opcion;
     do
     {
         clearscreen();
-        printf( "Bienvenido al TRv1                   vuelo:%s\n\n",vuelo);
+        printf( "Bienvenido al TRv1                   vuelo:%s",vuelo);
         printf( "\n   1. Reservar asiento" );
         printf( "\n   2. Ver asientos disponibles");
         printf( "\n   3. Ver Resumen");
@@ -39,26 +45,22 @@ Inicio:
         scanf( "%d", &opcion );
         if (opcion==1){
         ReservarAsientos();
-        goto Finish;
+        return;
         }
         else{
         if (opcion==2){
         AsientosDisponibles();
-        goto Finish;}
+        return;}
         else{
         if (opcion==3){
         Resumen();
-        goto Finish;}
+        return;}
         }
         }
         
 
     } while ( opcion != 4 );
-    }
-    else goto Inicio;
-
-Finish:
-    return 0;
+    
 }
 void ReservarAsientos(){
     clearscreen();
