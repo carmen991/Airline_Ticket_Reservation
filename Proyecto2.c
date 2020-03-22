@@ -98,16 +98,17 @@ void Resumen(){
 
 void Asientos(){
     int i;
-    printf("| ||A||B||C||D||E||F|\n");
+    printf("  ||A| |B| |C| |D| |E| |F|\n");
+        
         for (int filas=0;  filas< ROW; filas++){
+         while (i!=32){
+        i++;
+        printf("%d|",i); 
             for (int columnas=0; columnas < COL ; columnas++){  
-                while (i!=32){
-                i++;
-                printf("%d|",i);
-                printf("|%d|",asientos[filas][columnas]);
-                printf("\n");
-    }
-    
-}}
+              asientos[filas][columnas]=0;
+                printf(" |%d|",asientos[filas][columnas]);  
+    }printf("\n");     
+}
+}
 return;
 }
