@@ -23,6 +23,7 @@ Inicio:
     if (longitud==5){
     do
     {
+        clearscreen();
         printf( "Bienvenido al TRv1                   vuelo:%s\n\n",vuelo);
         printf( "\n   1. Reservar asiento" );
         printf( "\n   2. Ver asientos disponibles");
@@ -46,15 +47,18 @@ Inicio:
     }
     else goto Inicio;
 ReservarAsientos:{
+    clearscreen();
     printf("Aqui vamos a reservar asientos\n");
     goto Finish;
 }
 AsientosDisponibles:{
+    clearscreen();
     printf("Vamos a mostrar asientos disponibles\n");
     goto Finish;
 }
 
 Resumen:{
+    clearscreen();
     printf("Vamos a mostrar resumen\n");
     goto Finish;
 }
