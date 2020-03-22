@@ -16,6 +16,7 @@ void menu();
 void ReservarAsientos();
 void AsientosDisponibles();
 void Resumen();
+void Asientos();
 
 int main(void)
 {   
@@ -63,7 +64,7 @@ void menu(){
         
 
     } while ( opcion != 4 );
-    
+return;    
 }
 void ReservarAsientos(){
     clearscreen();
@@ -76,30 +77,37 @@ void ReservarAsientos(){
     char asiento;
     printf("Vuelo %s\n",vuelo);
     printf("Ingrese asiento a reservar(Fila,Columna):\n");
-    scanf("%d""%s",fila,columna);
+    scanf("%i""%s",&fila,columna);
 
-    printf("Asiento resrvado exitosamente");
+    printf("Asiento reservado exitosamente");
     return;
 }
 void AsientosDisponibles(){
     clearscreen();
     printf("Vamos a mostrar asientos disponibles:\n");
-    printf("|A||B||C||D||E||F|\n");
-    for (int i=0;i<32;i++)
-    printf("|%d|\n",i);
-    for (int filas=0;  filas< ROW; filas++){
-        for (int columnas=0; columnas < COL ; columnas++){
-            printf("|%d|",asientos[filas][columnas]);
-    }
-    printf("\n");
-}
+    Asientos();
 
     return;
-
 }
 
 void Resumen(){
     clearscreen();
     printf("Vamos a mostrar resumen\n");
     return;
+}
+
+void Asientos(){
+    int i;
+    printf("| ||A||B||C||D||E||F|\n");
+        for (int filas=0;  filas< ROW; filas++){
+            for (int columnas=0; columnas < COL ; columnas++){  
+                while (i!=32){
+                i++;
+                printf("%d|",i);
+                printf("|%d|",asientos[filas][columnas]);
+                printf("\n");
+    }
+    
+}}
+return;
 }
