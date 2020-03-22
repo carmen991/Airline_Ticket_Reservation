@@ -1,14 +1,14 @@
 #include <stdio.h>
-#include <math.h>
 #include <stdlib.h>
 #include <string.h>
-
+#define ROW 32
+#define COL 6
 void clearscreen()
 {
     system("@cls||clear");
 }
-
 char vuelo[5];
+int asientos[ROW][COL];
 void menu();
 void ReservarAsientos();
 void AsientosDisponibles();
@@ -64,13 +64,23 @@ void menu(){
 }
 void ReservarAsientos(){
     clearscreen();
+    char asiento;
     printf("Vuelo %s\n",vuelo);
     printf("Ingrese asiento a reservar:\n");
+
+    printf("%d",asientos[ROW][COL]);
     return;
 }
 void AsientosDisponibles(){
     clearscreen();
-    printf("Vamos a mostrar asientos disponibles\n");
+    printf("Vamos a mostrar asientos disponibles:\n");
+    for (int filas=0;  filas< ROW; filas++){
+        for (int columnas=0; columnas < COL ; columnas++){
+            printf("|%d|",asientos[filas][columnas]);
+    }
+    printf("\n");
+}
+
     return;
 
 }
