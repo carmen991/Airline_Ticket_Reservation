@@ -18,6 +18,7 @@ int C=3;
 int D=4;
 int E=5;
 int F=6;
+int filas, columnas;
 void menu();
 void ReservarAsientos();
 void AsientosDisponibles();
@@ -75,81 +76,89 @@ void ReservarAsientos(){
     clearscreen();
     printf("Vuelo %s\n",vuelo);
 Reservar:
-    printf("Ingrese asiento a reservar(LETRA,DIGITO):");
-    scanf("%s%i",columna,&fila);
-   char salir;
-   printf("Enter some character. Enter $ to exit...\n");
-   while (salir != 'm')
-   { salir=getchar();
-if (fila<= ROW) {
+    printf("Ingrese asiento a reservar(LETRA):");
+    scanf("%s",columna);
+    printf("Ingrese asiento a reservar(DIGITO):");
+    scanf("%i",&filas);
+if (filas<= ROW) 
   if(columna[0]=='A'||columna[0]=='B'||columna[0]=='C'||columna[0]=='D'||columna[0]=='E'||columna[0]=='F'){
     switch(columna[0]){
 case 'A':
-    if (asientos[fila][A]==0){
+columnas=A;
+    if (asientos[filas][columnas]==0){
     printf("Asiento %s%i reservado exitosamente!!\n",columna,fila);
-    asientos[fila][A]='X';
-    goto Reservar;
+    asientos[filas][columnas]='X';
+    printf("Presiona enter para regresar al menu principal\n");
+    getchar();
+    menu();
     }
     else {
         printf("Este asiento ya ha sido reservado\nVuelva a intentarlo");
         goto Reservar;
     } break;
 case 'B':
-    if (asientos[fila][B]==0){
+columnas=B;
+    if (asientos[filas][columnas]==0){
     printf("Asiento %s%i reservado exitosamente!!\n",columna,fila);
-    asientos[fila][B]='X';
-    goto Reservar;
+    asientos[filas][columnas]='X';
+    menu();
     }
     else {
         printf("Este asiento ya ha sido reservado\nVuelva a intentarlo");
         goto Reservar;
     } break;
 case 'C':
-    if (asientos[fila][C]==0){
+columnas=C;
+    if (asientos[filas][columnas]==0){
     printf("Asiento %s%i reservado exitosamente!!\n",columna,fila);
-    asientos[fila][C]='X';
-    goto Reservar;
+    asientos[filas][columnas]='X';
+    menu();
     }
     else {
         printf("Este asiento ya ha sido reservado\nVuelva a intentarlo");
         goto Reservar;
     } break;
 case 'D':
-    if (asientos[fila][D]==0){
+columnas=D;
+    if (asientos[filas][columnas]==0){
     printf("Asiento %s%i reservado exitosamente!!\n",columna,fila);
-    asientos[fila][A]='X';
-    goto Reservar;
+    asientos[filas][columnas]='X';
+    menu();
     }
     else {
         printf("Este asiento ya ha sido reservado\nVuelva a intentarlo");
         goto Reservar;
     } break;
 case 'E':
-    if (asientos[fila][E]==0){
+columnas=E;
+    if (asientos[filas][columnas]==0){
     printf("Asiento %s%i reservado exitosamente!!\n",columna,fila);
-    asientos[fila][A]='X';
-    goto Reservar;
+    asientos[filas][columnas]='X';
+    menu();
     }
     else {
         printf("Este asiento ya ha sido reservado\nVuelva a intentarlo");
         goto Reservar;
     } break;
 case 'F':
-    if (asientos[fila][F]==0){
+columnas=F;
+    if (asientos[filas][columnas]==0){
     printf("Asiento %s%i reservado exitosamente!!\n",columna,fila);
-    asientos[fila][A]='X';
-    goto Reservar;
+    asientos[filas][columnas]='X';
+    menu();
     }
     else {
         printf("Este asiento ya ha sido reservado\n");
         goto Reservar;
     } break;
-}}  else {
+}  }else {
     printf("Este no es un asiento\nVuelva a intentarlo\n");
     goto Reservar;}
-}else {printf("Este no es un asiento\nVuelva a intentarlo\n");
-    goto Reservar;}}
-    menu();
+else {printf("Este no es un asiento\nVuelva a intentarlo\n");
+    goto Reservar;}
+Menu:    
+menu();
+    return;
 }
 void AsientosDisponibles(){
     clearscreen();
@@ -167,15 +176,18 @@ void Resumen(){
 void Asientos(){
     int i;
     int c;
-    asientos[3][5]='X';
+    
+
     printf("  ||A| |B| |C| |D| |E| |F|\n");
         
-        for (int filas=0;  filas< ROW; filas++){
+        for (filas=0;  filas< ROW; filas++){
          while (i!=32){
         i++;
         printf("%d|",i); 
-            for (int columnas=0; columnas < COL ; columnas++){  
+            for (columnas=0; columnas < COL ; columnas++){  
               asientos[filas][columnas]=0;
+              asientos[fila][columnas]='X';
+    
                 printf(" |%d|",asientos[filas][columnas]);  
     }printf("\n");     
 }
